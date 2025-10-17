@@ -1,0 +1,17 @@
+header{
+    text-align: center;
+    }
+h2{
+    color:darkolivegreen;
+    }
+li{
+    color: green;
+
+}
+div {
+    width: 100px;
+   padding: 10px;
+   border: 2px solid green;
+   margin: 5px;
+   border-style: groove;
+     }
