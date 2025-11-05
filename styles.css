@@ -15,3 +15,11 @@ div {
    margin: 5px;
    border-style: groove;
      }
+.border, .border th, .border td { 
+   border: 2px solid gray; 
+   text-align: left; 
+}
+.no-border{
+   text-align: left;
+   border: none;
+}
