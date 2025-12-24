@@ -58,7 +58,6 @@ a:focus-visible {
   outline-offset: 3px;
   border-radius: 8px;
 }
-
 /* Print: hide the badge + footer links if you want it to feel more like a resume */
 @media print {
   .uwgb-badge,
