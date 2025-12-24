@@ -1,25 +1,228 @@
-/* ====== Resume Polish Pack (append to bottom) ====== */
+/* =========================================================
+   Mark Kobriger Resume Site - styles.css
+   Clean, modern, "green phoenix" vibe, print-friendly
+   ========================================================= */
 
-/* Make links inside the contact "pills" look like pills (not underlined) */
+/* ====== Theme Tokens ====== */
+:root {
+  --bg: #0b0f14;
+  --panel: #0e1523;
+  --card: rgba(15, 23, 36, 0.82);
+  --text: #e8eef6;
+  --muted: #a9b4c2;
+  --muted2: rgba(169, 180, 194, 0.72);
+  --line: rgba(232, 238, 246, 0.14);
+
+  --accent: #45d07a; /* green phoenix */
+  --accent2: rgba(69, 208, 122, 0.25);
+  --glow: rgba(69, 208, 122, 0.35);
+
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.40);
+  --shadow2: 0 10px 28px rgba(0, 0, 0, 0.32);
+
+  --radius: 18px;
+  --radius2: 14px;
+
+  --max: 980px;
+}
+
+/* ====== Base Reset ====== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+::selection {
+  background: rgba(69, 208, 122, 0.28);
+}
+
+/* ====== Page Background ====== */
+body {
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.55;
+
+  background:
+    radial-gradient(1200px 680px at 18% 0%, rgba(69, 208, 122, 0.18), transparent 60%),
+    radial-gradient(900px 520px at 90% 10%, rgba(120, 160, 255, 0.12), transparent 60%),
+    radial-gradient(900px 520px at 50% 110%, rgba(69, 208, 122, 0.10), transparent 60%),
+    var(--bg);
+}
+
+/* ====== Layout Container ====== */
+.container {
+  width: min(var(--max), 92vw);
+  margin: 0 auto;
+}
+
+/* ====== Links ====== */
+a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(232, 238, 246, 0.35);
+  transition: color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+a:focus-visible {
+  outline: 2px solid rgba(69, 208, 122, 0.75);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+/* ====== Header ====== */
+.site-header {
+  padding: 28px 0 18px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(to bottom, rgba(14, 21, 35, 0.78), rgba(14, 21, 35, 0));
+  backdrop-filter: blur(8px);
+}
+
+.header-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 220px 1fr;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.brand-logo {
+  border-radius: var(--radius2);
+  border: 1px solid rgba(232, 238, 246, 0.12);
+  box-shadow: var(--shadow2);
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.brand-note {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.title-block h1 {
+  margin: 0 0 6px;
+  font-size: clamp(2rem, 3.2vw, 2.7rem);
+  letter-spacing: 0.2px;
+  line-height: 1.1;
+}
+
+.headline {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 1.06rem;
+}
+
+/* ====== Contact Pills ====== */
+.contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  align-items: center;
+}
+
+.contact li {
+  padding: 7px 10px;
+  border: 1px solid rgba(232, 238, 246, 0.12);
+  border-radius: 999px;
+  background: rgba(15, 23, 36, 0.55);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.contact .subtle {
+  border-color: rgba(69, 208, 122, 0.25);
+  background: rgba(69, 208, 122, 0.08);
+  color: rgba(232, 238, 246, 0.92);
+}
+
 .contact a {
-  border-bottom: none;
+  border-bottom: none; /* keep pill clean */
 }
 .contact a:hover {
   border-bottom: none;
 }
 
-/* Add a little hierarchy + spacing when you have multiple subheads + pill groups */
-.card .subhead {
-  margin-top: 14px;
-  color: var(--muted);
-  font-size: 0.95rem;
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-}
-.card .subhead:first-of-type {
-  margin-top: 0;
+/* ====== Main ====== */
+.main {
+  padding: 22px 0 36px;
+  display: grid;
+  gap: 16px;
 }
 
+/* ====== Cards ====== */
+.card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid rgba(232, 238, 246, 0.12);
+  border-radius: var(--radius);
+  padding: 18px 18px 16px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* subtle sheen */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background:
+    radial-gradient(600px 260px at 20% 0%, rgba(69, 208, 122, 0.10), transparent 60%),
+    radial-gradient(600px 260px at 100% 10%, rgba(120, 160, 255, 0.08), transparent 60%);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.card > * {
+  position: relative;
+}
+
+.card:hover {
+  border-color: rgba(69, 208, 122, 0.22);
+  box-shadow: 0 24px 65px rgba(0, 0, 0, 0.48);
+}
+
+/* ====== Headings ====== */
+.card h2 {
+  margin: 0 0 10px;
+  font-size: 1.25rem;
+  letter-spacing: 0.2px;
+}
+
+.subhead {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  color: var(--muted);
+  letter-spacing: 0.45px;
+  text-transform: uppercase;
+}
+
+/* spacing rules for multiple subheads */
 .card .subhead + .pills {
   margin-top: 8px;
 }
@@ -27,53 +230,259 @@
   margin-top: 14px;
 }
 
-/* Slightly tighter pills so you can fit more skills cleanly */
-.pills li {
-  padding: 7px 10px;
-  font-size: 0.95rem;
-  line-height: 1.2;
+/* ====== Two Column Grids ====== */
+.grid-2 {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
 }
 
-/* Better paragraph rhythm inside cards */
-.card p {
-  margin: 0;
-}
-.card p + p {
-  margin-top: 10px;
+.grid-2.inner {
+  margin-top: 8px;
 }
 
-/* Make long job titles wrap nicely without awkward spacing */
+/* ====== Items (Experience/Education entries) ====== */
+.item {
+  padding-top: 12px;
+  border-top: 1px dashed rgba(232, 238, 246, 0.18);
+  margin-top: 12px;
+}
+
+.item:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.item.tight p {
+  margin: 6px 0 0;
+}
+
+.item-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px 10px;
+  align-items: baseline;
+}
+
 .item-head h3 {
+  margin: 0;
+  font-size: 1.05rem;
   max-width: 70%;
 }
-@media (max-width: 780px) {
-  .item-head h3 {
-    max-width: 100%;
-  }
+
+.meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
-/* Keyboard focus (small accessibility win) */
-a:focus-visible {
-  outline: 2px solid rgba(69, 208, 122, 0.7);
-  outline-offset: 3px;
-  border-radius: 8px;
+.small {
+  color: var(--muted);
+  font-size: 0.95rem;
 }
-/* Print: hide the badge + footer links if you want it to feel more like a resume */
-@media print {
-  .uwgb-badge,
-  .site-footer {
-    display: none;
-  }
-  .site-header {
-    border-bottom: 1px solid var(--line);
-    background: none;
-  }
-  .card {
-    page-break-inside: avoid;
-  }
+
+/* ====== Bullets ====== */
+.bullets {
+  margin: 10px 0 0;
+  padding-left: 18px;
 }
+
+.bullets li {
+  margin: 6px 0;
+  color: rgba(232, 238, 246, 0.95);
+}
+
+.bullets li::marker {
+  color: rgba(69, 208, 122, 0.75);
+}
+
+/* ====== Pills ====== */
+.pills {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pills li {
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(232, 238, 246, 0.12);
+  background: rgba(17, 24, 38, 0.55);
+  font-size: 0.95rem;
+  line-height: 1.2;
+  transition: transform 140ms ease, border-color 140ms ease;
+}
+
+.pills li:hover {
+  transform: translateY(-1px);
+  border-color: rgba(69, 208, 122, 0.28);
+}
+
+/* ====== Callout Box ====== */
+.callout {
+  margin-top: 12px;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(69, 208, 122, 0.22);
+  background: rgba(69, 208, 122, 0.08);
+}
+
+/* ====== School Badges ====== */
 .badge-row {
   display: flex;
   gap: 10px;
   align-items: center;
+}
+
+.school-badge,
+.uwgb-badge {
+  border-bottom: none;
+}
+
+.school-badge img,
+.uwgb-badge img {
+  max-height: 44px;
+  width: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(232, 238, 246, 0.12);
+  background: rgba(15, 23, 36, 0.6);
+  padding: 6px;
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.school-badge:hover img,
+.uwgb-badge:hover img {
+  transform: translateY(-1px);
+  border-color: rgba(69, 208, 122, 0.6);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.32);
+}
+
+/* ====== Footer ====== */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 18px 0 26px;
+  background: linear-gradient(to top, rgba(14, 21, 35, 0.60), rgba(14, 21, 35, 0));
+}
+
+.footer-grid {
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* ====== Cover Letter Styling ====== */
+.card.letter {
+  padding: 22px 22px 18px;
+}
+
+.letter-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(232, 238, 246, 0.12);
+}
+
+.letter-name {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+}
+
+.letter-meta {
+  margin: 2px 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.letter-date {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.card.letter p {
+  margin: 10px 0 0;
+  color: rgba(232, 238, 246, 0.95);
+  max-width: 78ch; /* readable measure */
+}
+
+.signature {
+  margin-top: 16px;
+}
+
+/* Optional: show current nav item as active pill */
+.contact a[aria-current="page"] {
+  color: var(--accent);
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 780px) {
+  .header-grid {
+    grid-template-columns: 1fr;
+  }
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .item-head h3 {
+    max-width: 100%;
+  }
+  .badge-row {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+/* ====== Print (makes it feel like a real resume) ====== */
+@media print {
+  :root {
+    --bg: #ffffff;
+    --text: #111;
+    --muted: #333;
+    --line: #ddd;
+  }
+
+  body {
+    background: #fff;
+    color: #111;
+  }
+
+  .site-header,
+  .site-footer {
+    background: none;
+  }
+
+  .card,
+  .brand-logo {
+    box-shadow: none;
+  }
+
+  .card::before {
+    display: none;
+  }
+
+  a {
+    color: #111;
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  .badge-row,
+  .school-badge,
+  .uwgb-badge {
+    display: none;
+  }
+
+  .card {
+    page-break-inside: avoid;
+  }
 }
