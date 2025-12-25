@@ -29,15 +29,9 @@
 /* ====== Base Reset ====== */
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
-}
+*::after { box-sizing: border-box; }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
+html, body { margin: 0; padding: 0; }
 
 img {
   max-width: 100%;
@@ -45,9 +39,7 @@ img {
   display: block;
 }
 
-::selection {
-  background: rgba(69, 208, 122, 0.28);
-}
+::selection { background: rgba(69, 208, 122, 0.28); }
 
 /* ====== Page Background ====== */
 body {
@@ -75,12 +67,10 @@ a {
   border-bottom: 1px solid rgba(232, 238, 246, 0.35);
   transition: color 160ms ease, border-color 160ms ease, transform 160ms ease;
 }
-
 a:hover {
   color: var(--accent);
   border-bottom-color: var(--accent);
 }
-
 a:focus-visible {
   outline: 2px solid rgba(69, 208, 122, 0.75);
   outline-offset: 3px;
@@ -115,12 +105,6 @@ a:focus-visible {
   box-shadow: var(--shadow2);
   object-fit: cover;
   background: rgba(255, 255, 255, 0.02);
-}
-
-.brand-note {
-  margin: 0;
-  font-size: 0.92rem;
-  color: var(--muted);
 }
 
 .title-block h1 {
@@ -161,12 +145,8 @@ a:focus-visible {
   color: rgba(232, 238, 246, 0.92);
 }
 
-.contact a {
-  border-bottom: none; /* keep pill clean */
-}
-.contact a:hover {
-  border-bottom: none;
-}
+.contact a { border-bottom: none; }
+.contact a:hover { border-bottom: none; }
 
 /* ====== Main ====== */
 .main {
@@ -198,9 +178,7 @@ a:focus-visible {
   pointer-events: none;
 }
 
-.card > * {
-  position: relative;
-}
+.card > * { position: relative; }
 
 .card:hover {
   border-color: rgba(69, 208, 122, 0.22);
@@ -222,13 +200,8 @@ a:focus-visible {
   text-transform: uppercase;
 }
 
-/* spacing rules for multiple subheads */
-.card .subhead + .pills {
-  margin-top: 8px;
-}
-.pills + .subhead {
-  margin-top: 14px;
-}
+.card .subhead + .pills { margin-top: 8px; }
+.pills + .subhead { margin-top: 14px; }
 
 /* ====== Two Column Grids ====== */
 .grid-2 {
@@ -236,27 +209,20 @@ a:focus-visible {
   gap: 16px;
   grid-template-columns: 1fr 1fr;
 }
+.grid-2.inner { margin-top: 8px; }
 
-.grid-2.inner {
-  margin-top: 8px;
-}
-
-/* ====== Items (Experience/Education entries) ====== */
+/* ====== Items ====== */
 .item {
   padding-top: 12px;
   border-top: 1px dashed rgba(232, 238, 246, 0.18);
   margin-top: 12px;
 }
-
 .item:first-of-type {
   border-top: none;
   padding-top: 0;
   margin-top: 0;
 }
-
-.item.tight p {
-  margin: 6px 0 0;
-}
+.item.tight p { margin: 6px 0 0; }
 
 .item-head {
   display: flex;
@@ -265,7 +231,6 @@ a:focus-visible {
   gap: 6px 10px;
   align-items: baseline;
 }
-
 .item-head h3 {
   margin: 0;
   font-size: 1.05rem;
@@ -288,15 +253,11 @@ a:focus-visible {
   margin: 10px 0 0;
   padding-left: 18px;
 }
-
 .bullets li {
   margin: 6px 0;
   color: rgba(232, 238, 246, 0.95);
 }
-
-.bullets li::marker {
-  color: rgba(69, 208, 122, 0.75);
-}
+.bullets li::marker { color: rgba(69, 208, 122, 0.75); }
 
 /* ====== Pills ====== */
 .pills {
@@ -307,7 +268,6 @@ a:focus-visible {
   flex-wrap: wrap;
   gap: 10px;
 }
-
 .pills li {
   padding: 7px 10px;
   border-radius: 999px;
@@ -317,7 +277,6 @@ a:focus-visible {
   line-height: 1.2;
   transition: transform 140ms ease, border-color 140ms ease;
 }
-
 .pills li:hover {
   transform: translateY(-1px);
   border-color: rgba(69, 208, 122, 0.28);
@@ -332,20 +291,35 @@ a:focus-visible {
   background: rgba(69, 208, 122, 0.08);
 }
 
-/* ====== School Badges ====== */
-.badge-row {
+/* ====== Education two-school layout ====== */
+.edu-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 10px;
+}
+
+.edu-card {
+  border: 1px solid rgba(232, 238, 246, 0.12);
+  border-radius: var(--radius2);
+  background: rgba(15, 23, 36, 0.55);
+  padding: 14px 14px 12px;
+}
+
+.edu-badges {
   display: flex;
   gap: 10px;
   align-items: center;
+  margin-top: 10px;
 }
 
-.school-badge,
-.uwgb-badge {
+.edu-badge {
   border-bottom: none;
+  display: inline-flex;
+  align-items: center;
 }
 
-.school-badge img,
-.uwgb-badge img {
+.edu-badge img {
   max-height: 44px;
   width: auto;
   border-radius: 10px;
@@ -355,8 +329,7 @@ a:focus-visible {
   transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
 }
 
-.school-badge:hover img,
-.uwgb-badge:hover img {
+.edu-badge:hover img {
   transform: translateY(-1px);
   border-color: rgba(69, 208, 122, 0.6);
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.32);
@@ -371,16 +344,12 @@ a:focus-visible {
 
 .footer-grid {
   display: flex;
-  gap: 14px;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 /* ====== Cover Letter Styling ====== */
-.card.letter {
-  padding: 22px 22px 18px;
-}
+.card.letter { padding: 22px 22px 18px; }
 
 .letter-top {
   display: flex;
@@ -397,52 +366,35 @@ a:focus-visible {
   font-size: 1.05rem;
 }
 
-.letter-meta {
+.letter-meta,
+.letter-date {
   margin: 2px 0;
   color: var(--muted);
   font-size: 0.95rem;
 }
 
-.letter-date {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-  white-space: nowrap;
-}
+.letter-date { white-space: nowrap; }
 
 .card.letter p {
   margin: 10px 0 0;
   color: rgba(232, 238, 246, 0.95);
-  max-width: 78ch; /* readable measure */
+  max-width: 78ch;
 }
 
-.signature {
-  margin-top: 16px;
-}
+.signature { margin-top: 16px; }
 
 /* Optional: show current nav item as active pill */
-.contact a[aria-current="page"] {
-  color: var(--accent);
-}
+.contact a[aria-current="page"] { color: var(--accent); }
 
 /* ====== Responsive ====== */
 @media (max-width: 780px) {
-  .header-grid {
-    grid-template-columns: 1fr;
-  }
-  .grid-2 {
-    grid-template-columns: 1fr;
-  }
-  .item-head h3 {
-    max-width: 100%;
-  }
-  .badge-row {
-    width: 100%;
-    justify-content: flex-start;
-  }
+  .header-grid { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .edu-grid { grid-template-columns: 1fr; }
+  .item-head h3 { max-width: 100%; }
 }
 
-/* ====== Print (makes it feel like a real resume) ====== */
+/* ====== Print ====== */
 @media print {
   :root {
     --bg: #ffffff;
@@ -451,24 +403,15 @@ a:focus-visible {
     --line: #ddd;
   }
 
-  body {
-    background: #fff;
-    color: #111;
-  }
+  body { background: #fff; color: #111; }
 
-  .site-header,
-  .site-footer {
-    background: none;
-  }
+  .site-header { background: none; }
+  .site-footer { display: none; }
 
   .card,
-  .brand-logo {
-    box-shadow: none;
-  }
+  .brand-logo { box-shadow: none; }
 
-  .card::before {
-    display: none;
-  }
+  .card::before { display: none; }
 
   a {
     color: #111;
@@ -476,13 +419,5 @@ a:focus-visible {
     text-decoration: underline;
   }
 
-  .badge-row,
-  .school-badge,
-  .uwgb-badge {
-    display: none;
-  }
-
-  .card {
-    page-break-inside: avoid;
-  }
+  .card { page-break-inside: avoid; }
 }
